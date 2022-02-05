@@ -1,4 +1,3 @@
-MESSAGE = """
 Olá! Tudo bem?
 
 Muito obrigada por se inscrever no Eventex.
@@ -18,4 +17,3 @@ matrícula.
 Atenciosamente,
 --
 Morena
-"""

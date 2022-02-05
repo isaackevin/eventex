@@ -10,7 +10,6 @@ from eventex.subscriptions.forms import SubscriptionForm
 def subscribe(request):
     if request.method == 'POST':
         form = SubscriptionForm(request.POST)
-        form.full_clean()
 
         if form.is_valid():
             body = render_to_string('subscriptions/subscription_email.txt', form.cleaned_data)
