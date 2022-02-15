@@ -11,13 +11,13 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
-# from pathlib import Path
+from pathlib import Path
 from decouple import config, Csv
 from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -29,6 +29,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
+
+DEFAULT_FROM_EMAIL = 'kevin.tecnologia.1@gmail.com'
 
 # Application definition
 
