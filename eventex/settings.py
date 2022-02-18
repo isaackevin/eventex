@@ -30,7 +30,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 
-DEFAULT_FROM_EMAIL = 'kevin.tecnologia.1@gmail.com'
+DEFAULT_FROM_EMAIL = 'isaacbasses@outlook.com'
 ADMINS = [DEFAULT_FROM_EMAIL]
 MANAGERS = ADMINS
 
