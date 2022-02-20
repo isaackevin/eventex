@@ -1,9 +1,11 @@
+from cryptography.fernet import Fernet
 from django.conf import settings
-from django.contrib import messages
 from django.core import mail
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.template.loader import render_to_string
+
+from eventex.core.util import encrypt, decrypt
 from eventex.subscriptions.forms import SubscriptionForm
 from eventex.subscriptions.models import Subscription
 
@@ -28,8 +30,8 @@ def create(request):
                subscription.email,
                'subscriptions/subscription_email.txt',
                {'subscription': subscription})
-
-    return HttpResponseRedirect('/inscricao/{}/'.format(subscription.pk))
+    key_aleatoria = encrypt(str(subscription.id).encode('utf-8'))
+    return HttpResponseRedirect('/inscricao/{}/'.format(key_aleatoria.decode('utf-8')))
 
 
 def new(request):
@@ -38,7 +40,12 @@ def new(request):
 
 def detail(request, pk):
     try:
-        subscription = Subscription.objects.get(pk=pk)
+        key_aleatoria = decrypt(str(pk).encode('utf-8'))
+    except:
+        raise Http404
+
+    try:
+        subscription = Subscription.objects.get(pk=key_aleatoria.decode('utf-8'))
     except Subscription.DoesNotExist:
         raise Http404
 
