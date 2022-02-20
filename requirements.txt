@@ -9,3 +9,4 @@ sqlparse==0.4.2
 static3==0.7.0
 django-extensions==3.1.5
 django-test-without-migrations==0.6
+cryptography==36.0.1
