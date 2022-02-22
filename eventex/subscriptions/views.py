@@ -30,8 +30,8 @@ def create(request):
                subscription.email,
                'subscriptions/subscription_email.txt',
                {'subscription': subscription})
-    key_aleatoria = encrypt(str(subscription.id).encode('utf-8'))
-    return HttpResponseRedirect('/inscricao/{}/'.format(key_aleatoria.decode('utf-8')))
+
+    return HttpResponseRedirect('/inscricao/{}/'.format(subscription.pk))
 
 
 def new(request):
@@ -40,12 +40,7 @@ def new(request):
 
 def detail(request, pk):
     try:
-        key_aleatoria = decrypt(str(pk).encode('utf-8'))
-    except:
-        raise Http404
-
-    try:
-        subscription = Subscription.objects.get(pk=key_aleatoria.decode('utf-8'))
+        subscription = Subscription.objects.get(pk=pk)
     except Subscription.DoesNotExist:
         raise Http404
 
