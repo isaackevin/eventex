@@ -366,8 +366,13 @@ section header h2 {
     text-transform: uppercase;
 }
 .speakers img {
-    width: 250px;
+    width: 190px;
     border-radius: 20%;
 }
+.speakers img.photo {
+    float: left;
+    padding-right: 15px;
+}
+
 
 /* Fim Customização */
