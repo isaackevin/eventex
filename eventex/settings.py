@@ -31,7 +31,10 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 
 DEFAULT_FROM_EMAIL = 'isaacbasses@outlook.com'
-ADMINS = ['isaaclex50@gmail.com']
+ADMINS = (
+    ('isaac', 'isaaclex50@gmail.com', ),
+)
+
 MANAGERS = ADMINS
 
 # Application definition
