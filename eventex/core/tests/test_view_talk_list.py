@@ -45,7 +45,11 @@ class TalkListGet(TestCase):
                 self.assertContains(self.resp, expected, count)
 
     def test_context(self):
+<<<<<<< HEAD
         variables = ['talk_list']
+=======
+        variables = ['morning_talks', 'afternoon_talks', 'courses']
+>>>>>>> parent of 173b946 (course mti)
 
         for key in variables:
             with self.subTest():
